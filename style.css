@@ -1,0 +1,64 @@
+body,
+html,
+* {
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    background-color: rgb(36, 168, 146)
+    
+}
+
+.container {
+    width: 90vw;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+
+.card {
+    height: 40rem;
+    width: 25%;
+    background-color: rgb(45, 219, 211);
+    border: 2px rgb(40, 197, 189);
+    border-radius: 3px;
+    box-shadow: 10px 10px 30px black;
+    display: flex;
+    margin: 3rem 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url();
+    transition: all 0.5s;
+   
+}
+
+
+.card-img {
+width: 90%;
+height: auto;
+object-fit: cover;
+}
+.card-header {
+margin-top: 1.2rem;
+font-size: 30px;
+}
+.card-price {
+    margin-bottom: 1.2rem;
+}
+
+.form {
+    display: flex;
+    margin: 3rem 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 20rem;
+}
