@@ -8,12 +8,7 @@ const DOMSelectors = {
     form:document.querySelector(".form"),
     };
     
-    DOMSelectors.form.addEventListener("submit", function(event){
     
-     event.preventDefault();
-     console.log(document.querySelectorAll("input").value);
-    
-    });
 //select all buttons as nodelist (can use for each)
     const buttons = document.querySelectorAll("button");
     //make an array from buttons if i want to use filterv etc.
@@ -26,6 +21,13 @@ newButtons.forEach((button) => button.addEventListener("click", function (event)
 })
 );
 
+DOMSelectors.form.addEventListener("submit", function(event){
+    
+     event.preventDefault();
+     console.log(document.querySelectorAll("input").value);
+    
+    
+
 const inputs = [...document.querySelectorAll(".form input")];
 const gametitle = inputs[0].value;
 const gamerelease = inputs[1].value;
@@ -34,11 +36,15 @@ const gameimage = inputs[2].value;
 
 DOMSelectors.container.insertAdjacentHTML(
     "beforeend", 
-    `<div class="card">${gametitle}<h2 class="card-header">Some Text</h2></div>`
-    `<div class="card">${gamerelease}<h2 class="card-header">Some Text</h2></div>`
-    `<div class="card">${gameimage}<h2 class="card-img">Some Text</h2></div>`
+    `<div class="card">
+        <h2 class="card-header">${gametitle}</h2>
+        <p>Release Date: ${gamerelease}</p>
+        <img src="${gameimage}" alt="${gametitle} image" class="card-img" />
+    </div>`
 );
 
+inputs.forEach(input => input.value = '');
+});
 //create the html for inputs, cards, and containers aka where card goes
 
 //select slash query in html form and get values from inputs
