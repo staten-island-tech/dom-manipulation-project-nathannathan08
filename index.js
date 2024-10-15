@@ -1,7 +1,6 @@
 const DOMSelectors = {
 
     header: document.querySelector("h1"),
-    items: document.querySelectorAll("li"),
     cardHeader: document.querySelector(".card-header"),
     button: document.querySelector(".btn"),
     container:document.querySelector(".container"),
@@ -22,13 +21,8 @@ newButtons.forEach((button) => button.addEventListener("click", function (event)
 );
 
 DOMSelectors.form.addEventListener("submit", function(event){
-    
-     event.preventDefault();
-     console.log(document.querySelectorAll("input").value);
-    
-    
 
-const inputs = [...document.querySelectorAll(".form input")];
+    const inputs = [...document.querySelectorAll(".form input")];
 const gametitle = inputs[0].value;
 const gamerelease = inputs[1].value;
 const gameimage = inputs[2].value;
@@ -44,7 +38,14 @@ DOMSelectors.container.insertAdjacentHTML(
 );
 
 inputs.forEach(input => input.value = '');
-});
+
+
+     event.preventDefault();
+     console.log(document.querySelectorAll("input").value);
+    
+    });
+
+
 //create the html for inputs, cards, and containers aka where card goes
 
 //select slash query in html form and get values from inputs
