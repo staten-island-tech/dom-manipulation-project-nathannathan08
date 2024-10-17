@@ -5,20 +5,10 @@ const DOMSelectors = {
     button: document.querySelector(".btn"),
     container:document.querySelector(".container"),
     form:document.querySelector(".form"),
+    removeButton:document.querySelector(".remove-btn"),
     };
     
-    
-//select all buttons as nodelist (can use for each)
-    const buttons = document.querySelectorAll("button");
-    //make an array from buttons if i want to use filterv etc.
-const newButtons = Array.from(buttons);
-//iterate through array and change each buttons color
-newButtons.forEach((button)=> (button.style.backgroundColor = "blue"));
-
-newButtons.forEach((button) => button.addEventListener("click", function (event) {
-    console.log(event.target.textContent);
-})
-);
+let lastCard;
 
 DOMSelectors.form.addEventListener("submit", function(event){
 
@@ -37,14 +27,29 @@ DOMSelectors.container.insertAdjacentHTML(
     </div>`
 );
 
-inputs.forEach(input => input.value = '');
-
-
      event.preventDefault();
      console.log(document.querySelectorAll("input").value);
     
-    });
+    
+    // Update lastCard to the newly created card
+    lastCard = DOMSelectors.container.querySelector(".card:last-child");
+    console.log("New last card:", lastCard); // Debugging: Log the last card
 
+    // Clear the input fields
+    inputs.forEach(input => input.value = '');
+});
+
+// Add event listener for the Remove button
+DOMSelectors.removeButton.addEventListener("click", function() {
+    if (lastCard) {
+        console.log("Deleting card:", lastCard); 
+        lastCard.remove(); // Remove the last created card
+        lastCard = DOMSelectors.container.querySelector(".card:last-child"); // Update lastCard reference
+        console.log("New last card:", lastCard); // Debugging: Log the new last card
+    } else {
+        console.log("No card found."); // Debugging info
+    }
+});
 
 //create the html for inputs, cards, and containers aka where card goes
 
