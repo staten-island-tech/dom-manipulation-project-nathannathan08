@@ -45,7 +45,7 @@ DOMSelectors.removeButton.addEventListener("click", function() {
         console.log("Deleting card:", lastCard); 
         lastCard.remove(); // Remove the last created card
         lastCard = DOMSelectors.container.querySelector(".card:last-child"); // Update lastCard reference
-        console.log("New last card:", lastCard); // Debugging: Log the new last card
+        console.log("New last card identified:", lastCard); // Debugging: Log the new last card
     } else {
         console.log("No card found."); // Debugging info
     }
